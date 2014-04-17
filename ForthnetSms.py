@@ -1,10 +1,11 @@
 import mechanize
 import cookielib
+import getpass
 
 print "What's your email?"
 username = raw_input()
 print "What's your password?"
-password = raw_input()
+password = getpass.getpass()
 br = mechanize.Browser()
 cj = cookielib.LWPCookieJar()
 br.set_cookiejar(cj)
