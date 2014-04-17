@@ -2,7 +2,6 @@
 ** About
 This is a simple script using Python's *Mechanize* library.
 It is written in order to avoid the use of Forthnet's WebSMS Service website, when sending text-messages.
-Its use is simple. Just follow the instructions and write the phone number and the text-message you would like to send.
 
 ** Dependencies
    - Mechanize Library (http://pypi.python.org/pypi/mechanize)
@@ -16,12 +15,21 @@ Its use is simple. Just follow the instructions and write the phone number and t
    - To configure *ForthnetSms.py* open the script and change the *login_email* and *password* variables properly.
 
 
-** For android users:
+** For Αndroid users:
 
    - Install the Python interpreter (SL4A > Menu > View > Interpreters and then Add>Python)
    - In order to use mechanize library with SL4A Python interpreter in Αndroid, just download the latest .tar from http://pypi.python.org/pypi/mechanize
      and extract *only* the source folder inside the folder with the rest of your scripts.
      Then you can import the library as usual (/import mechanize/).
+
+** For iPhone users:
+  - You need to be jailbroken
+  - SSH into your iPhone
+  - Download the latest version of Python for iOS package (ex. wget https://github.com/linusyang/python-for-ios/releases/download/v2.7.6-3/python_2.7.6-3_iphoneos-arm.deb) which includes setuptools (easy_install)
+  - Install it (dpkg -i python_2.7.6-3_iphoneos-arm.deb)
+  - Use easy_install to install pip (easy_install pip)
+  - Use pip to install the Mechanize library (pip install mechanize)
+
 
 
 

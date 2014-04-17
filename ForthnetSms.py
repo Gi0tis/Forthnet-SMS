@@ -1,27 +1,26 @@
 import mechanize
 import cookielib
 
-login_email = "EMAIL"
-password = "PASSWORD"
-
+print "What's your email?"
+username = raw_input()
+print "What's your password?"
+password = raw_input()
 br = mechanize.Browser()
 cj = cookielib.LWPCookieJar()
 br.set_cookiejar(cj)
 br.set_handle_robots(False)
 br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
-#br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
-br.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11')]
-r = br.open('https://www.forthnet.gr/secure/webSMS/default.aspx')
+br.addheaders = [('User-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:28.0) Gecko/20100101 Firefox/28.0')]
+r = br.open('https://www-old.forthnet.gr/secure/webSMS/login.aspx?ReturnUrl=%2fsecure%2fwebsms%2fdefault.aspx&xss_mode=l')
 
 
-#Site-authentication (email/password)
+#Authentication
 br.select_form(nr=0)
-br.form['Username'] = login_email
+br.form['Username'] = username
 br.form['Password'] = password
 br.submit()
 
-
-#SMS texting/sending
+#SMS sending
 br.select_form(nr=0)
 
 print "Phone Number:"
