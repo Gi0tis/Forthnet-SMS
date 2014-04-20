@@ -6,6 +6,7 @@ It is written in order to avoid the use of Forthnet's WebSMS Service website, wh
 ** Dependencies
    - Mechanize Library (http://pypi.python.org/pypi/mechanize)
    - Python
+   - Forthnet account
 
 ** Installation
    - To install *mechanize*: 
