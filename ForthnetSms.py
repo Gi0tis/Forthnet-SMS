@@ -5,6 +5,7 @@ import ssl
 from ssl import PROTOCOL_SSLv23, PROTOCOL_SSLv3, CERT_NONE, SSLSocket
 
 
+#SSL compatibility 
 def monkey_wrap_socket(sock, keyfile=None, certfile=None,
 	server_side=False, cert_reqs=CERT_NONE,
 	ssl_version=PROTOCOL_SSLv23, ca_certs=None,
@@ -19,6 +20,7 @@ def monkey_wrap_socket(sock, keyfile=None, certfile=None,
 	ciphers=ciphers)
 
 ssl.wrap_socket = monkey_wrap_socket
+
 #User input
 print "What's your email?"
 username = raw_input()
@@ -27,7 +29,6 @@ password = getpass.getpass()
 
 #Browser
 br = mechanize.Browser()
-#br.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 cj = cookielib.LWPCookieJar()
 br.set_cookiejar(cj)
 br.set_handle_robots(False)
@@ -43,15 +44,13 @@ br.submit()
 
 #SMS sending
 br.select_form(nr=0)
-
-print "Phone Number:"
+print "Phone Number to send an sms:"
 number = raw_input()
 br.form['txtTo'] = number
 
 print "SMS Text:"
 message = raw_input()
 br.form['txtMessage'] = message
-
 br.submit()
 print "SMS sent."
 
